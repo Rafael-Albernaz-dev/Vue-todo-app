@@ -1,3 +1,4 @@
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -41,6 +42,7 @@ const app = new Vue({
             localStorage.setItem('todos',parsed);
         },
 
+    
 
     },
 
@@ -53,7 +55,9 @@ const app = new Vue({
                 localStorage.removeItem('todos');
             }
         }
-    },
+    }
+
 
 });
+
 
