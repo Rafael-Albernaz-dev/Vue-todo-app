@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>My Vue To Do List</title>
+    <title>My VueJS To Do List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -10,9 +10,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!--Fonts-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <style>
+    .done {
+      text-decoration: line-through;
+    }
+    
+    </style>
   </head>
   <body>
-      
+      <div class="wrapper p-5">
+        <div class="container p-5">
+          <div class="row">
+            <div class="col-12">
+              <div id="app" style="border: 1px solid #ccc" class="p-5">
+                <h1> {{ title }}<span></span></h1>
+                <form @submit.prevent="addTodo">
+                  <div class="input-group">
+                    <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
+                    <div class="input-group-append">
+                      <button type="submit" name="button">Add</button>
+                    </div>
+                  </div>
+                </form>
+                <button @click="allDone">all done</button>
+                <button @click=allDelete>Delete all</button>
+                <h5>{{todos.length}}</h5>
+                <ul>
+                  <li v-for="todo in todos">
+                    <input type="checkbox" v-model="todo.done">
+                    <span :class="{ done: todo.done }">{{todo.title}}</span>
+                    <button @click="removeTodo(todo)">X</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
