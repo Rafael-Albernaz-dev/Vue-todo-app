@@ -4,21 +4,33 @@ const app = new Vue({
     data: {
         title: 'Tasks',
         newTodo: '',
-        todos: []
+        todos: [],
+        
+        
     },
 
-
-
     methods: {
+
         addTodo() {
+            if(!this.newTodo) { return; }
+            
             this.todos.push({
                 title: this.newTodo,
                 done: false,
+                
             });
+
+            this.saveTodos();
             this.newTodo = '';
+            
+        },
+
+        isChecked(todo) {
+            return this.todos.includes(todo);
             this.saveTodos();
         },
 
+        
         removeTodo(todo) {
             const todoIndex = this.todos.indexOf(todo);
             this.todos.splice(todoIndex,1);
@@ -28,7 +40,8 @@ const app = new Vue({
         allDone() {
             this.todos.forEach(todo => {
                 todo.done = true;
-            })
+            });
+
             this.saveTodos();
         },
 
@@ -55,7 +68,8 @@ const app = new Vue({
                 localStorage.removeItem('todos');
             }
         }
-    }
+    },
+
 
 
 });
