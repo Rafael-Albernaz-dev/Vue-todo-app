@@ -25,13 +25,13 @@ const app = new Vue({
             
         },
 
-        isChecked(todo) {
-            return this.todos.includes(todo);
-            this.saveTodos();
+        isChecked () {
+            this.todos.forEach(todo => {
+                this.saveTodos();
+            })
         },
 
-        
-        removeTodo(todo) {
+        deleteTodo(todo) {
             const todoIndex = this.todos.indexOf(todo);
             this.todos.splice(todoIndex,1);
             this.saveTodos();
