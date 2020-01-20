@@ -17,15 +17,15 @@ body,html{
 }
 
 #app {
-    max-width: 700px;
-    min-height: 300px;
-    margin-bottom: 300px;
-    margin-top: 50px;
-    background-color:#6272a4;
-    color:#fff;
-    border-radius: 2px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    transition: 0.7s linear;
+  max-width: 700px;
+  min-height: 300px;
+  margin-bottom: 300px;
+  margin-top: 50px;
+  background-color:#6272a4;
+  color:#fff;
+  border-radius: 2px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: 0.7s linear;
     
     
     
@@ -33,30 +33,117 @@ body,html{
 
 .header {
 
-    font-family: 'Staatliches', arial;
-    text-align: center;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    color:#50fa7b;
-    transition: 0.7s linear;
+  font-family: 'Staatliches', arial;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color:#50fa7b;
+  transition: 0.7s linear;
 
 }
-.form-control.newTodo:focus{
-    border: none!important;
-    outline: none!important;
-    transition: 0.7 linear!important;
+
+.qntTodo {
+  color: #fff;
+  font-family: 'Roboto',Arial;
+}
+
+.form-control.newTodo{
+  border: none;
+  border-radius: 0;
+}
+
+.form-control.newTodo:focus {
+  border: 1px solid #000;
+  box-shadow: 0 0 20px #00000060;
+  outline: none;
+}
+
+.newEditTodo {
+  width: 400px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  bottom: 10px;
+  z-index: 1000;
+  border: 1px solid #3c4556;
+}
+
+.form-editTodo {
+  position: absolute;
+  bottom: 50px;
+  width: 600px;
+  z-index: 2000;
+ 
 }
 
 .btn.btn-dark {
-    color: #282a36;
-    background:  #50fa7b;
-    border: 1px solid #50fa7b;
-    transition: 0.4s linear;
+  color: #282a36;
+  background:  #50fa7b;
+  border: 1px solid #50fa7b;
+  border-radius: none;
+  transition: 0.4s linear;
 }
 .btn.btn-dark:hover {
-    color: #fff;
-    background:  #9b79cc;
-    border: 1px solid #9b79cc;
+  color: #fff;
+  background:  #42cd65;
+  border: 1px solid #42cd65;
+}
+.list-unstyled {
+  margin-top: 35px;
+}
+
+.btn-action {
+  border: none;
+  width: 130px;
+  padding: 1px 3px ;
+  
+
+}
+
+.btn-action.markAll {
+  color: #000;
+  background-color: #50fa7b;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+}
+
+.btn-action.markAll:hover {
+  color: #000;
+  background-color: #42cd65;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: 0.2s all;
+
+}
+
+.btn-action.saveTask {
+  color: #000;
+  background-color: #8be9fd;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+}
+.btn-action.saveTask:hover {
+  color: #000;
+  background-color: #72bfd0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+}
+
+.btn-action.deleteAll{
+  color: #000;
+  background-color: #ff5555;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+}
+.btn-action.deleteAll:hover{
+  color: #000;
+  background-color: #d14646;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
 }
 
 /* Hide the browser's default checkbox */
@@ -75,14 +162,14 @@ body,html{
     left: 10px;
     height: 20px;
     width: 20px;
-    background-color: #f8f8f2;
+    background-color: #fff;
     border-radius: 50%;
     cursor: pointer;
   }
   
   /* When the checkbox is checked, add a blue background */
   .container-checkbox input:checked ~ .checkmark {
-    background-color: #bd93f9;
+    background-color: #50fa7b;
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -103,27 +190,33 @@ body,html{
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid #fff;
+    border: solid #000;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+    animation: fadein 0.5s;
 
   }
 
 .alert.alert-primary {
-    color: #f8f8f2;
-    background-color: #bd93f9;
-    border: none;
-    transition: 0.3s all;
-    font-size: 1em;
-    margin-left: 0;
-    border-radius: 0!important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #000;
+  background-color: #50fa7b;
+  border: none;
+  transition: 0.3s all;
+  font-size: 1em;
+  margin-left: 0;
+  border-radius: 0!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  animation: fadein 0.5s;
+  
 
 }
+
 .alert.alert-primary span.text {
     margin-left: 25px;
+    position: absolute;
+    z-index: 1;
 
 }
   .alert.alert-primary i:hover {
@@ -136,9 +229,16 @@ body,html{
     text-decoration: line-through;
     text-decoration-thickness: 2px;
     text-decoration-color: #ff5555;
+
   }
 
   .blue {
     color: blue;
 
+  }
+
+
+  @keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
   }

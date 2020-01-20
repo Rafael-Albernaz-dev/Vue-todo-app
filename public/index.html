@@ -16,29 +16,25 @@
   <body>
       <div class="wrapper">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><i class="fas fa-check-circle"></i> VueTodoList</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation"></button>
+          <a class="navbar-brand" href="#"><i class="fas fa-check-circle"></i> VueTodoList</a>
         </nav>
-        <div class="container">
-          <div class="row hjustify-content-center align-items-center">
+        <div class="container">   
+          <div class="row justify-content-center align-items-center">
             <div class="col-12">  
               <div id="app" class="mx-auto p-5">
-                <h1 class="header"> {{ title }}<span :class="{ blue : !isActive}" > ({{todos.length}})</span></h1>
+                <h1 class="header"> {{ title }}<span class="qntTodo" v-if="todos.length > 0"> ({{todos.length}})</span></h1>
                 <form @submit.prevent="addTodo">
                   <div class="input-group">
-                    <input class="form-control newTodo" v-model="newTodo" type="text"  placeholder="Add a todo">
+                    <input class="form-control newTodo" v-model="newTodo" type="text"  placeholder="Add a task" >
                     <div class="input-group-append">
-                      <button class="form-control btn btn-dark" type="submit" name="button"><i class="fas fa-plus fa-lg"></i></button c>
+                      <button class="form-control btn btn-dark" type="submit" name="button"><i class="fas fa-plus fa-lg"></i></button>
                     </div>
                   </div>
                 </form>
-                <span>{{ today | date}}</span>
-                <!-- <span :class="{ blue : isActive}" >{{ todoSave }} </span> -->
-                <button  @click="allDone">all done</button>
-                <button  @click=allDelete>Delete all</button>
-                <button  @click="isChecked">Save Todos</button>  
-                <span v-if="!isActive">{{ todoSave }}</span>
+                <button class="btn-action mx-1 my-3 float-right deleteAll" @click=allDelete><i class="fas fa-trash-alt"></i> Delete All</button>
+                <button class="btn-action mx-1 my-3 float-right saveTask" @click="isChecked" v-if="isActive"><i class="fas fa-save"></i> Save Tasks</button>  
+                <button class="btn-action mx-1 my-3 float-right saveTask" @click="isChecked" v-if="!isActive"><i class="fas fa-save"></i> {{ todoSave }}</button>  
+                <button class="btn-action mx-1 my-3 float-right markAll" @click="allDone"><i class="fas fa-check"></i> Mark All</button>
                 <ul class="list-unstyled p-4">
                   <li v-for="todo in todos">
                     <div class="alert alert-primary" role="alert" >
@@ -46,8 +42,12 @@
                         <input type="checkbox" v-model="todo.done">
                         <span class="checkmark"></span>
                       </label>
-                      <span class="text" :class="{ done: todo.done }" v-on:="isChecked">{{todo.title}}</span>
-                      <a class="float-right" @click="deleteTodo(todo)"><i class="fas fa-trash"></i></a>   
+                      <form @submit.prevent="addEditTodo(todo)" class="form-editTodo" v-if="isEdit">
+                        <input type="text" class="newEditTodo" v-model="newEditTodo">
+                      </form>
+                      <span class="text" :class="{ done: todo.done }" >{{todo.title}}</span>
+                      <a class="float-right" @click="deleteTodo(todo)"><i class="fas fa-trash"></i></a>
+                      <a class="float-right mr-3" @click="editTodo(todo)"><i class="fas fa-pencil-alt"></i></a>   
                     </div> 
                   </li>
                 </ul>
@@ -60,6 +60,6 @@
     
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="../src/app.js"></script>    
+    <script src="../src/app.js"></script>
   </body>
 </html>

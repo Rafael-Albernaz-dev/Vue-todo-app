@@ -1,27 +1,15 @@
-function todayDate(today) {
-    return today.toLocaleDateString('en-US', {
-        day: 'numeric',
-        weekday: 'long',
-        month: 'short'
-    })
-}
-
-
 
 const app = new Vue({
     el: '#app',
     data: {
         title: 'Tasks',
-        today: new Date(),
         isActive: true,
+        isEdit: false,
         todoSave: 'Salvo',
         newTodo: '',
+        newEditTodo: '',
         todos: [],
             
-    },
-
-    filters: {
-        date: todayDate,
     },
 
     methods: {
@@ -37,6 +25,21 @@ const app = new Vue({
 
             
             this.newTodo = '';
+            
+        },
+
+        addEditTodo(todo) {
+
+            if(!this.newEditTodo) { return todo.title; }
+            todo.title = this.newEditTodo;
+            this.isEdit = !this.isEdit;
+            
+        },
+
+        editTodo(todo) {
+            this.newEditTodo = todo.title;            
+            this.isEdit = !this.isEdit;
+            todo.title = '';
             
         },
 
