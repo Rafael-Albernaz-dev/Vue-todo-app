@@ -31,10 +31,10 @@
                     </div>
                   </div>
                 </form>
-                <button class="btn-action mx-1 my-3 float-right deleteAll" @click=allDelete><i class="fas fa-trash-alt"></i> Delete All</button>
-                <button class="btn-action mx-1 my-3 float-right saveTask" @click="isChecked" v-if="isActive"><i class="fas fa-save"></i> Save Tasks</button>  
-                <button class="btn-action mx-1 my-3 float-right saveTask" @click="isChecked" v-if="!isActive"><i class="fas fa-save"></i> {{ todoSave }}</button>  
-                <button class="btn-action mx-1 my-3 float-right markAll" @click="allDone"><i class="fas fa-check"></i> Mark All</button>
+                <button class="btn-action btn my-3 float-right deleteAll" @click=allDelete><i class="fas fa-trash-alt"></i> Delete All</button>
+                <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="isActive"><i class="fas fa-save"></i> Save Tasks</button>  
+                <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="!isActive"><i class="fas fa-save"></i> {{ todoSave }}</button>  
+                <button class="btn-action btn mr-2 my-3 float-right markAll" @click="allDone"><i class="fas fa-check"></i> Mark All</button>
                 <ul class="list-unstyled p-4">
                   <li v-for="todo in todos">
                     <div class="alert alert-primary" role="alert" >
