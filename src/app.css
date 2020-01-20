@@ -67,6 +67,7 @@ outline: none;
 
 .newEditTodo {
 width: 400px;
+height: 30px;
 position: absolute;
 top: 10px;
 left: 15px;
