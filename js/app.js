@@ -1,12 +1,29 @@
+function todayDate(today) {
+    return today.toLocaleDateString('en-US', {
+        day: 'numeric',
+        weekday: 'long',
+        month: 'short'
+    })
+}
+
+
 
 const app = new Vue({
     el: '#app',
     data: {
         title: 'Tasks',
+        today: new Date(),
+        isActive: false,
+        todoSave: 'Salvo',
         newTodo: '',
         todos: [],
         
         
+        
+    },
+
+    filters: {
+        date: todayDate,
     },
 
     methods: {
@@ -20,7 +37,7 @@ const app = new Vue({
                 
             });
 
-            this.saveTodos();
+            
             this.newTodo = '';
             
         },
@@ -28,13 +45,15 @@ const app = new Vue({
         isChecked () {
             this.todos.forEach(todo => {
                 this.saveTodos();
+                this.isActive = !this.isActive;
+
             })
         },
 
         deleteTodo(todo) {
             const todoIndex = this.todos.indexOf(todo);
             this.todos.splice(todoIndex,1);
-            this.saveTodos();
+            
         },
 
         allDone() {
@@ -42,7 +61,7 @@ const app = new Vue({
                 todo.done = true;
             });
 
-            this.saveTodos();
+            
         },
 
         allDelete() {
@@ -55,7 +74,6 @@ const app = new Vue({
             localStorage.setItem('todos',parsed);
         },
 
-    
 
     },
 

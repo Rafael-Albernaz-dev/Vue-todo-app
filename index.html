@@ -9,40 +9,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="./css/app.css">
     <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <style>
-    .done {
-      text-decoration: line-through;
-    }
-    
-    </style>
   </head>
   <body>
-      <div class="wrapper p-5">
-        <div class="container p-5">
-          <div class="row">
-            <div class="col-12">
-              <div id="app" style="border: 1px solid #ccc" class="p-5">
-                <h1> {{ title }}<span></span></h1>
+      <div class="wrapper">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><i class="fas fa-check-circle"></i> VueTodoList</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation"></button>
+        </nav>
+        <div class="container">
+          <div class="row hjustify-content-center align-items-center">
+            <div class="col-12">  
+              <div id="app" class="mx-auto p-5">
+                <h1 class="header"> {{ title }}<span :class="{ blue : isActive}" v-if="isActive"> ({{todos.length}}) {{ todoSave }} </span></h1>
                 <form @submit.prevent="addTodo">
                   <div class="input-group">
-                    <input v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="Add a todo">
+                    <input class="form-control newTodo" v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="Add a todo">
                     <div class="input-group-append">
-                      <button type="submit" name="button">Add</button>
+                      <button class="form-control btn btn-dark" type="submit" name="button"><i class="fas fa-plus fa-lg"></i></button c>
                     </div>
                   </div>
                 </form>
-                <button @click="allDone">all done</button>
-                <button @click=allDelete>Delete all</button>
-                <button @click="isChecked">Save Todos</button>
-                <h5>{{todos.length}}</h5>
-                <ul>
+                <span>{{ today | date}}</span>
+                <a href="#" @click="allDone">all done</a>
+                <a href="#" @click=allDelete>Delete all</a>
+                <a href="#" @click="isChecked">Save Todos</a>  
+                <ul class="list-unstyled p-4">
                   <li v-for="todo in todos">
-                    <input type="checkbox" v-model="todo.done">
-                    <span v-bind:class="{ done: todo.done }" v-on:="isChecked">{{todo.title}}</span>
-                    <button @click="deleteTodo(todo)">X</button>                    
+                    <div class="alert alert-primary" role="alert" >
+                      <label class="container-checkbox">
+                        <input type="checkbox" v-model="todo.done">
+                        <span class="checkmark"></span>
+                      </label>
+                      <span class="text" :class="{ done: todo.done }" v-on:="isChecked">{{todo.title}}</span>
+                      <a class="float-right" @click="deleteTodo(todo)"><i class="fas fa-trash"></i></a>   
+                    </div> 
                   </li>
                 </ul>
+
               </div>
             </div>
           </div>
