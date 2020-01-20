@@ -24,19 +24,21 @@
           <div class="row hjustify-content-center align-items-center">
             <div class="col-12">  
               <div id="app" class="mx-auto p-5">
-                <h1 class="header"> {{ title }}<span :class="{ blue : isActive}" v-if="isActive"> ({{todos.length}}) {{ todoSave }} </span></h1>
+                <h1 class="header"> {{ title }}<span :class="{ blue : !isActive}" > ({{todos.length}})</span></h1>
                 <form @submit.prevent="addTodo">
                   <div class="input-group">
-                    <input class="form-control newTodo" v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="Add a todo">
+                    <input class="form-control newTodo" v-model="newTodo" type="text"  placeholder="Add a todo">
                     <div class="input-group-append">
                       <button class="form-control btn btn-dark" type="submit" name="button"><i class="fas fa-plus fa-lg"></i></button c>
                     </div>
                   </div>
                 </form>
                 <span>{{ today | date}}</span>
-                <a href="#" @click="allDone">all done</a>
-                <a href="#" @click=allDelete>Delete all</a>
-                <a href="#" @click="isChecked">Save Todos</a>  
+                <!-- <span :class="{ blue : isActive}" >{{ todoSave }} </span> -->
+                <button  @click="allDone">all done</button>
+                <button  @click=allDelete>Delete all</button>
+                <button  @click="isChecked">Save Todos</button>  
+                <span v-if="!isActive">{{ todoSave }}</span>
                 <ul class="list-unstyled p-4">
                   <li v-for="todo in todos">
                     <div class="alert alert-primary" role="alert" >

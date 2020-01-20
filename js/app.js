@@ -13,13 +13,11 @@ const app = new Vue({
     data: {
         title: 'Tasks',
         today: new Date(),
-        isActive: false,
+        isActive: true,
         todoSave: 'Salvo',
         newTodo: '',
         todos: [],
-        
-        
-        
+            
     },
 
     filters: {

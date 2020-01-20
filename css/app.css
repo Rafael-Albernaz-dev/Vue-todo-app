@@ -77,11 +77,12 @@ body,html{
     width: 20px;
     background-color: #f8f8f2;
     border-radius: 50%;
+    cursor: pointer;
   }
   
   /* When the checkbox is checked, add a blue background */
   .container-checkbox input:checked ~ .checkmark {
-    background-color: #50fa7b;
+    background-color: #bd93f9;
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -102,11 +103,12 @@ body,html{
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid #fff;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+
   }
 
 .alert.alert-primary {
@@ -132,7 +134,7 @@ body,html{
 
 .done {
     text-decoration: line-through;
-    text-decoration-thickness: 0.225em;
+    text-decoration-thickness: 2px;
     text-decoration-color: #ff5555;
   }
 
