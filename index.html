@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>My VueJS To Do List</title>
+  <title>Todo App</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -51,7 +51,7 @@
                     <input type="checkbox" v-model="todo.done">
                     <span class="checkmark"></span>
                   </label>
-                  <form @submit.prevent="addEditTodo(todo)" class="form-editTodo" v-if="isEdit">
+                  <form @submit.prevent="addEditTodo(todo)" class="form-editTodo" v-if="isEdit == true">
                     <input type="text" class="newEditTodo" v-model="newEditTodo">
                   </form>
                   <span class="text" :class="{ done: todo.done }">{{todo.title}}</span>
