@@ -1,165 +1,172 @@
-
-body,html{
-  height:100vh;
+body,
+html {
+  height: 100vh;
   background: #3c4556;
   font-family: 'Roboto', arial;
 }
-.wrapper,.row,.container {
+
+.wrapper,
+.row,
+.container {
   height: 100vh;
 }
 
 .navbar {
-  background:#282a36!important;
-  
+  background: #282a36 !important;
+
 }
+
 .navbar i {
   color: #50fa7b;
-  
+
 }
 
 #app {
-max-width: 700px;
-min-height: 300px;
-margin-bottom: 300px;
-margin-top: 50px;
-background-color:#6272a4;
-color:#fff;
-border-radius: 2px;
--webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
--webkit-transition: 0.7s linear;
--o-transition: 0.7s linear;
-transition: 0.7s linear;
-  
-  
-  
+  max-width: 700px;
+  min-height: 300px;
+  margin-bottom: 300px;
+  margin-top: 50px;
+  background-color: #6272a4;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  -webkit-transition: 0.7s linear;
+  -o-transition: 0.7s linear;
+  transition: 0.7s linear;
+
 }
 
 .header {
-
-font-family: 'Staatliches', arial;
-text-align: center;
-letter-spacing: 1px;
-margin-bottom: 20px;
-color:#50fa7b;
--webkit-transition: 0.7s linear;
--o-transition: 0.7s linear;
-transition: 0.7s linear;
+  font-family: 'Staatliches', arial;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #50fa7b;
+  -webkit-transition: 0.7s linear;
+  -o-transition: 0.7s linear;
+  transition: 0.7s linear;
 
 }
 
 .qntTodo {
-color: #fff;
-font-family: 'Roboto',Arial;
+  color: #fff;
+  font-family: 'Roboto', Arial;
+  animation: fadein 0.5s;
 }
 
-.form-control.newTodo{
-border: none;
-border-radius: 0;
+.form-control.newTodo {
+  border: none;
+  border-radius: 0;
 }
 
 .form-control.newTodo:focus {
-border: 1px solid #000;
--webkit-box-shadow: 0 0 20px #00000060;
-        box-shadow: 0 0 20px #00000060;
-outline: none;
+  border: 1px solid #000;
+  -webkit-box-shadow: 0 0 20px #00000060;
+  box-shadow: 0 0 20px #00000060;
+  outline: none;
 }
 
 .newEditTodo {
-max-width: 400px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 15px;
-bottom: 10px;
-z-index: 1000;
-border: 1px solid #3c4556;
+  max-width: 400px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  bottom: 10px;
+  z-index: 1000;
+  border: 1px solid #3c4556;
 }
 
 .form-editTodo {
-position: absolute;
-bottom: 50px;
-width: 600px;
-z-index: 2000;
+  position: absolute;
+  bottom: 50px;
+  width: 600px;
+  z-index: 2000;
 
 }
 
 .btn.btn-dark {
-color: #282a36;
-background:  #50fa7b;
-border: 1px solid #50fa7b;
-border-radius: none;
--webkit-transition: 0.4s linear;
--o-transition: 0.4s linear;
-transition: 0.4s linear;
+  color: #282a36;
+  background: #50fa7b;
+  border: 1px solid #50fa7b;
+  border-radius: none;
+  -webkit-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
 }
+
 .btn.btn-dark:hover {
-color: #fff;
-background:  #42cd65;
-border: 1px solid #42cd65;
+  color: #fff;
+  background: #42cd65;
+  border: 1px solid #42cd65;
 }
+
 .list-unstyled {
-margin-top: 35px;
+  margin-top: 35px;
 }
 
 .btn-action {
-border: none;
-max-width: 130px;
-padding: 1px 5px;
+  border: none;
+  max-width: 130px;
+  padding: 1px 5px;
 
 
 }
 
 .btn-action.markAll {
-color: #000;
-background-color: #50fa7b;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #000;
+  background-color: #50fa7b;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 
 }
 
 .btn-action.markAll:hover {
-color: #000;
-background-color: #42cd65;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
--webkit-transition: 0.2s all;
--o-transition: 0.2s all;
-transition: 0.2s all;
+  color: #000;
+  background-color: #42cd65;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: 0.2s all;
+  -o-transition: 0.2s all;
+  transition: 0.2s all;
 
 }
 
 .btn-action.saveTask {
-color: #000;
-background-color: #8be9fd;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #000;
+  background-color: #8be9fd;
+  animation: fadein 0.5s;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 
 }
+
 .btn-action.saveTask:hover {
-color: #000;
-background-color: #72bfd0;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #000;
+  background-color: #72bfd0;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 
 }
 
-.btn-action.deleteAll{
-color: #000;
-background-color: #ff5555;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+.btn-action.deleteAll {
+  color: #000;
+  background-color: #ff5555;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 
 }
-.btn-action.deleteAll:hover{
-color: #000;
-background-color: #d14646;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+.btn-action.deleteAll:hover {
+  color: #000;
+  background-color: #d14646;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 
 }
@@ -186,7 +193,7 @@ background-color: #d14646;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container-checkbox input:checked ~ .checkmark {
+.container-checkbox input:checked~.checkmark {
   background-color: #50fa7b;
 }
 
@@ -198,7 +205,7 @@ background-color: #d14646;
 }
 
 /* Show the checkmark when checked */
-.container-checkbox input:checked ~ .checkmark:after {
+.container-checkbox input:checked~.checkmark:after {
   display: block;
 }
 
@@ -214,24 +221,24 @@ background-color: #d14646;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   -webkit-animation: fadein 0.5s;
-          animation: fadein 0.5s;
+  animation: fadein 0.5s;
 
 }
 
 .alert.alert-primary {
-color: #000;
-background-color: #50fa7b;
-border: none;
--webkit-transition: 0.3s all;
--o-transition: 0.3s all;
-transition: 0.3s all;
-font-size: 1em;
-margin-left: 0;
-border-radius: 0!important;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
--webkit-animation: fadein 0.5s;
-        animation: fadein 0.5s;
+  color: #000;
+  background-color: #50fa7b;
+  border: none;
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
+  font-size: 1em;
+  margin-left: 0;
+  border-radius: 0 !important;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
 
 
 }
@@ -242,6 +249,7 @@ border-radius: 0!important;
   z-index: 1;
 
 }
+
 .alert.alert-primary i:hover {
   color: #ff5555;
   cursor: pointer;
@@ -254,16 +262,26 @@ border-radius: 0!important;
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   -webkit-text-decoration-color: #ff5555;
-          text-decoration-color: #ff5555;
+  text-decoration-color: #ff5555;
 
 }
 
 @-webkit-keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

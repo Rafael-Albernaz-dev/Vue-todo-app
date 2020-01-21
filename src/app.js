@@ -5,7 +5,7 @@ const app = new Vue({
         title: 'Tasks',
         isActive: true,
         isEdit: false,
-        todoSave: 'Salvo',
+        todoSave: 'Saved',
         newTodo: '',
         newEditTodo: '',
         todos: [],

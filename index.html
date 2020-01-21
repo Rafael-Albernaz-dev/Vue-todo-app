@@ -1,65 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>My VueJS To Do List</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!--Styles-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="./src/app.css">
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  </head>
-  <body>
-      <div class="wrapper">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-          <a class="navbar-brand" href="#"><i class="fas fa-check-circle"></i> VueTodoList</a>
-        </nav>
-        <div class="container">   
-          <div class="row justify-content-center align-items-center">
-            <div class="col-12">  
-              <div id="app" class="mx-auto p-5">
-                <h1 class="header"> {{ title }}<span class="qntTodo" v-if="todos.length > 0"> ({{todos.length}})</span></h1>
-                <form @submit.prevent="addTodo">
-                  <div class="input-group">
-                    <input class="form-control newTodo" v-model="newTodo" type="text"  placeholder="Add a task" >
-                    <div class="input-group-append">
-                      <button class="form-control btn btn-dark" type="submit" name="button"><i class="fas fa-plus fa-lg"></i></button>
-                    </div>
-                  </div>
-                </form>
-                <button class="btn-action btn my-3 float-right deleteAll" @click=allDelete><i class="fas fa-trash-alt"></i> Delete All</button>
-                <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="isActive"><i class="fas fa-save"></i> Save Tasks</button>  
-                <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="!isActive"><i class="fas fa-save"></i> {{ todoSave }}</button>  
-                <button class="btn-action btn mr-2 my-3 float-right markAll" @click="allDone"><i class="fas fa-check"></i> Mark All</button>
-                <ul class="list-unstyled p-4">
-                  <li v-for="todo in todos">
-                    <div class="alert alert-primary" role="alert" >
-                      <label class="container-checkbox">
-                        <input type="checkbox" v-model="todo.done">
-                        <span class="checkmark"></span>
-                      </label>
-                      <form @submit.prevent="addEditTodo(todo)" class="form-editTodo" v-if="isEdit">
-                        <input type="text" class="newEditTodo" v-model="newEditTodo">
-                      </form>
-                      <span class="text" :class="{ done: todo.done }" >{{todo.title}}</span>
-                      <a class="float-right" @click="deleteTodo(todo)"><i class="fas fa-trash"></i></a>
-                      <a class="float-right mr-3" @click="editTodo(todo)"><i class="fas fa-pencil-alt"></i></a>   
-                    </div> 
-                  </li>
-                </ul>
 
+<head>
+  <title>My VueJS To Do List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!--Styles-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./src/app.css">
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><i class="fas fa-check-circle"></i> VueTodoList</a>
+    </nav>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12">
+          <div id="app" class="mx-auto p-5">
+            <h1 class="header"> {{ title }}<span class="qntTodo" v-if="todos.length > 0"> ({{todos.length}})</span></h1>
+            <form @submit.prevent="addTodo">
+              <div class="input-group">
+                <input class="form-control newTodo" v-model="newTodo" type="text" placeholder="Add a task">
+                <div class="input-group-append">
+                  <button class="form-control btn btn-dark" type="submit" name="button"><i
+                      class="fas fa-plus fa-lg"></i></button>
+                </div>
               </div>
-            </div>
+            </form>
+            <button class="btn-action btn my-3 float-right deleteAll" @click=allDelete><i class="fas fa-trash-alt"></i>
+              Delete All</button>
+            <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="isActive"><i
+                class="fas fa-save"></i> Save Tasks</button>
+            <button class="btn-action btn mr-2 my-3 float-right saveTask" @click="isChecked" v-if="!isActive"><i
+                class="fas fa-save"></i> {{ todoSave }}</button>
+            <button class="btn-action btn mr-2 my-3 float-right markAll" @click="allDone"><i class="fas fa-check"></i>
+              Mark All</button>
+            <ul class="list-unstyled p-4">
+              <li v-for="todo in todos">
+                <div class="alert alert-primary" role="alert">
+                  <label class="container-checkbox">
+                    <input type="checkbox" v-model="todo.done">
+                    <span class="checkmark"></span>
+                  </label>
+                  <form @submit.prevent="addEditTodo(todo)" class="form-editTodo" v-if="isEdit">
+                    <input type="text" class="newEditTodo" v-model="newEditTodo">
+                  </form>
+                  <span class="text" :class="{ done: todo.done }">{{todo.title}}</span>
+                  <a class="float-right" @click="deleteTodo(todo)"><i class="fas fa-trash"></i></a>
+                  <a class="float-right mr-3" @click="editTodo(todo)"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+              </li>
+            </ul>
+
           </div>
         </div>
       </div>
-    
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./src/app.js"></script>
-  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+
 </html>
